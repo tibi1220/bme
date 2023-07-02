@@ -32,9 +32,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Navigate to client
-        run: cd client
-
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -62,10 +59,12 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install -recursive
 
       - name: Build
-        run: npm build
+        run: |
+          cd client
+          pnpm build
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
