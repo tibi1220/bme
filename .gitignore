@@ -1,0 +1,9 @@
+# General files
+.DS_Store\
+
+# Client files
+node_modules
+build
+dist
+
+# LaTeX files
